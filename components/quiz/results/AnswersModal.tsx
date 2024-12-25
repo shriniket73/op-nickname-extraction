@@ -3,7 +3,13 @@ import { XCircle, CheckCircle2, X } from 'lucide-react';
 import MultipleChoice from '../questions/MultipleChoice';
 import FrequencyOrder from '../questions/FrequencyOrder';
 import NicknameCount from '../questions/NicknameCount';
-import { QuizQuestion, QuizAnswer } from '../types/quiz.types';
+import { 
+    QuizQuestion, 
+    QuizAnswer,
+    MultipleChoiceQuestion,
+    FrequencyOrderQuestion,
+    NicknameCountQuestion 
+  } from '../types/quiz.types';
 
 interface AnswersModalProps {
   questions: QuizQuestion[];
@@ -18,38 +24,54 @@ const AnswersModal = ({ questions, answers, onClose }: AnswersModalProps) => {
     const correctAnswers = Object.values(answers).filter(a => a.isCorrect).length;
   
     const renderQuestionResult = (question: QuizQuestion, answer: QuizAnswer) => {
-      const props = {
-        question,
-        onAnswer: () => {},
-        selectedAnswer: answer?.answer,
-        showingResult: true,
-        isCorrect: answer?.isCorrect
+        switch (question.type) {
+          case 'nickname-choice':
+          case 'character-nickname': {
+            const multipleChoiceQuestion = question as MultipleChoiceQuestion;
+            return (
+              <MultipleChoice
+                question={{
+                  question: multipleChoiceQuestion.question,
+                  options: multipleChoiceQuestion.options,
+                  correctAnswer: multipleChoiceQuestion.correctAnswer,
+                  description: multipleChoiceQuestion.description,
+                  videoLink: multipleChoiceQuestion.videoLink
+                }}
+                onAnswer={() => {}}
+                selectedAnswer={answer?.answer as string}
+                showingResult={true}
+                isCorrect={answer?.isCorrect || false}
+              />
+            );
+          }
+          case 'frequency-order': {
+            const frequencyQuestion = question as FrequencyOrderQuestion;
+            return (
+              <FrequencyOrder 
+                question={frequencyQuestion}
+                onAnswer={() => {}}
+                currentOrder={answer?.answer as string[]}
+                showingResult={true}
+                isCorrect={answer?.isCorrect || false}
+              />
+            );
+          }
+          case 'nickname-count': {
+            const countQuestion = question as NicknameCountQuestion;
+            return (
+              <NicknameCount 
+                question={countQuestion}
+                onAnswer={() => {}}
+                currentValue={answer?.answer as [number, number]}
+                showingResult={true}
+                isCorrect={answer?.isCorrect || false}
+              />
+            );
+          }
+          default:
+            return null;
+        }
       };
-  
-      switch (question.type) {
-        case 'nickname-choice':
-        case 'character-nickname':
-          return <MultipleChoice {...props} />;
-        case 'frequency-order':
-          return <FrequencyOrder 
-            question={question}
-            onAnswer={() => {}}
-            currentOrder={answer?.answer as string[]}
-            showingResult={true}
-            isCorrect={answer?.isCorrect}
-          />;
-        case 'nickname-count':
-          return <NicknameCount 
-            question={question}
-            onAnswer={() => {}}
-            currentValue={answer?.answer as [number, number]}
-            showingResult={true}
-            isCorrect={answer?.isCorrect}
-          />;
-        default:
-          return null;
-      }
-    };
   
     return (
         <div className="fixed inset-0 bg-black bg-opacity-50 backdrop-blur-sm z-50 flex items-center justify-center p-4">

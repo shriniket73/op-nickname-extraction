@@ -212,7 +212,7 @@ if (!isQuizCompleted) {
               </tr>
             </thead>
             <tbody>
-              {filteredData.map((item: { nickname: boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | React.Key | null | undefined; frequency: string | number | bigint | boolean | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | React.ReactPortal | Promise<string | number | bigint | boolean | React.ReactPortal | React.ReactElement<unknown, string | React.JSXElementConstructor<any>> | Iterable<React.ReactNode> | null | undefined> | null | undefined; }, index: number) => (
+              {filteredData.map((item: { nickname: string; frequency: number }, index: number) => (
                 <tr 
                   key={item.nickname}
                   className={index % 2 === 0 ? 'bg-white' : 'bg-[#F5F5F5]'}

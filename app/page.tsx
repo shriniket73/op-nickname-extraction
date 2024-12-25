@@ -15,7 +15,7 @@ const ForNerdsContent = () => (
     <h5 className="flex items-center gap-1 mb-4">
           (Refer to the
           <Link 
-            href="https://shriniket.me/projects" 
+            href="https://www.shriniket.me/blog/extracting-name-from-youtube" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-[#1A1A1A] hover:text-[#4A4A4A] transition-colors text-sm md:text-base underline"

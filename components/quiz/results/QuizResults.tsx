@@ -151,7 +151,7 @@ const ShareButton = ({ platform, onClick }: { platform: string; onClick: () => v
             </p>
             <div className="flex flex-col md:flex-row items-center md:items-center justify-center md:justify-between gap-2 md:gap-0">
               <Link 
-                href="https://github.com/yourusername/og-gang-quiz" 
+                href="https://github.com/shriniket73/op-nickname-extraction" 
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 text-[#1A1A1A] hover:text-[#4A4A4A] transition-colors font-chomiku text-sm md:text-base"

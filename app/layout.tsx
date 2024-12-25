@@ -2,7 +2,8 @@ import type { Metadata } from 'next';
 import './globals.css';
 import { Inter } from 'next/font/google';
 import ThumbnailStrip from '@/components/ThumbnailStrip';
-import Providers from '@/components/Providers';
+import {PosthogScript} from '@/components/ui/PostHogScript';
+import { Analytics } from '@vercel/analytics/react';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -34,17 +35,19 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <PosthogScript />
+      </head>
       <body className={`${inter.className} relative min-h-screen`}>
-        <Providers>
-          {/* Background ThumbnailStrip */}
-          <div className="fixed inset-0 z-[-1]">
-            <ThumbnailStrip />
-          </div>
-          {/* Main Content */}
-          <main className="relative z-[1] container mx-auto min-h-screen p-4 md:p-8">
-            {children}
-          </main>
-        </Providers>
+        {/* Background ThumbnailStrip */}
+        <div className="fixed inset-0 z-[-1]">
+          <ThumbnailStrip />
+        </div>
+        {/* Main Content */}
+        <main className="relative z-[1] container mx-auto min-h-screen p-4 md:p-8">
+          {children}
+        </main>
+        <Analytics />
       </body>
     </html>
   );

@@ -30,6 +30,7 @@ export interface NicknameCountQuestion extends BaseQuestion {
   tolerance: number;
 }
 
+
 export type QuizQuestion = 
   | MultipleChoiceQuestion 
   | FrequencyOrderQuestion 

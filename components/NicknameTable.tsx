@@ -4,7 +4,11 @@ import { ArrowDown, ArrowUp, ArrowUpDown } from "lucide-react";
 
 const NicknameTable = () => {
   const [searchTerm, setSearchTerm] = useState('');
-  const [sortConfig, setSortConfig] = useState({ key: null, direction: null });
+  const [sortConfig, setSortConfig] = useState<{
+    key: string | null;
+    direction: 'ascending' | 'descending' | null;
+  }>({ key: null, direction: null });
+  
 
 // Check if quiz is completed from localStorage
 const isQuizCompleted =
@@ -112,12 +116,13 @@ if (!isQuizCompleted) {
   ];
 
   const handleSort = (key: string | null) => {
-    let direction = 'ascending';
+    let direction: 'ascending' | 'descending' = 'ascending';
     if (sortConfig.key === key && sortConfig.direction === 'ascending') {
       direction = 'descending';
     }
     setSortConfig({ key, direction });
   };
+  
 
   const getSortedData = (data: { nickname: string; frequency: number; }[]) => {
     if (!sortConfig.key) return data;

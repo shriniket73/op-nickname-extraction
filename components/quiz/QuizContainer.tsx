@@ -146,29 +146,34 @@ const QuizContainer = () => {
       </div>
       
       {/* Navigation */}
-      <div className="flex justify-between pt-4">
-        <Button
-          onClick={handlePrevious}
-          disabled={currentQuestionIndex === 0}
-          variant="ghost"
-          className="font-chomiku text-lg text-[#1A1A1A] hover:bg-gray-50 disabled:opacity-50"
-        >
-          <ChevronLeft className="w-4 h-4 mr-2" />
-          Previous
-        </Button>
+      {/* Navigation */}
+<div className="flex justify-between pt-4">
+  {currentQuestionIndex > 0 && (
+    <Button
+      onClick={handlePrevious}
+      variant="ghost"
+      className="font-chomiku text-lg text-[#1A1A1A] hover:bg-gray-50 disabled:opacity-50"
+    >
+      <ChevronLeft className="w-4 h-4 mr-2" />
+      Previous
+    </Button>
+  )}
+  
+  {/* This empty div ensures Next button stays right-aligned when Previous is hidden */}
+  {currentQuestionIndex === 0 && <div></div>}
 
-        <Button
-          onClick={handleNext}
-          disabled={!hasCurrentAnswer}
-          variant="ghost"
-          className="font-chomiku text-lg text-[#1A1A1A] hover:bg-gray-50 disabled:opacity-50"
-        >
-          {currentQuestionIndex === quizQuestions.length - 1 ? 'Finish' : 'Next'}
-          {currentQuestionIndex !== quizQuestions.length - 1 && (
-            <ChevronRight className="w-4 h-4 ml-2" />
-          )}
-        </Button>
-      </div>
+  <Button
+    onClick={handleNext}
+    disabled={!hasCurrentAnswer}
+    variant="ghost"
+    className="font-chomiku text-lg text-[#1A1A1A] hover:bg-gray-50 disabled:opacity-50"
+  >
+    {currentQuestionIndex === quizQuestions.length - 1 ? 'Finish' : 'Next'}
+    {currentQuestionIndex !== quizQuestions.length - 1 && (
+      <ChevronRight className="w-4 h-4 ml-2" />
+    )}
+  </Button>
+</div>
     </div>
   );
 };

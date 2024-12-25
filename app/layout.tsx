@@ -48,6 +48,8 @@ export default function RootLayout({
             alt="Background"
             fill
             priority
+            unoptimized
+            quality = {100}
             className="object-cover"
             sizes="100vw"
           />

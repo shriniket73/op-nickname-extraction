@@ -36,6 +36,7 @@ const QuizLoading = ({ onComplete }: { onComplete: () => void }) => {
           <Image
             src="/images/tanmay-end.gif"
             alt="Loading"
+            unoptimized
             width={192} // Matches w-48 (48 * 4 = 192px)
             height={192} // Matches h-48 (48 * 4 = 192px)
             objectFit="cover" // Ensures the GIF maintains aspect ratio

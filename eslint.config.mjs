@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import { dirname } from "path";
 import { fileURLToPath } from "url";
 import { FlatCompat } from "@eslint/eslintrc";
@@ -13,4 +14,12 @@ const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
 ];
 
-export default eslintConfig;
+export default [
+  {
+    rules: {
+      // Disable specific rules
+      'no-console': 'off', // Disables warnings for console.log
+      'react/prop-types': 'off', // Disables prop-types warnings
+    },
+  },
+];

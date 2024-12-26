@@ -154,7 +154,7 @@ const ShareButton = ({ platform, onClick }: { platform: string; onClick: () => v
                 href="https://github.com/shriniket73/op-nickname-extraction" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 text-[#1A1A1A] hover:text-[#4A4A4A] transition-colors font-chomiku text-sm md:text-base"
+                className="flex items-center gap-2 text-[#1A1A1A] hover:text-[#4A4A4A] transition-colors underline font-chomiku text-sm md:text-base"
               >
                 <Github className="w-4 h-4" />
                 View on GitHub
@@ -163,7 +163,7 @@ const ShareButton = ({ platform, onClick }: { platform: string; onClick: () => v
                 href="https://shriniket.me" 
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-[#1A1A1A] hover:text-[#4A4A4A] transition-colors font-chomiku text-sm md:text-base"
+                className="text-[#1A1A1A] hover:text-[#4A4A4A] transition-colors font-chomiku text-sm md:text-base underline"
               >
                 Made by Shriniket
               </Link>

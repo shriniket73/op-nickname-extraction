@@ -13,17 +13,15 @@ const ForNerdsContent = () => (
   <div className="prose prose-lg max-w-4xl mx-auto">
     <h2 className="font-chomiku text-2xl text-[#1A1A1A] mb-4 text-center">Behind the Scenes: How I Built This</h2>
     <h5 className="flex items-center gap-1 mb-4">
-          (Refer to the
+          Refer to the detailerd blog
           <Link 
             href="https://www.shriniket.me/blog/extracting-name-from-youtube" 
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1 text-[#1A1A1A] hover:text-[#4A4A4A] transition-colors text-sm md:text-base underline"
           >
-            detailed blog
-            <ArrowUpRight className="w-4 h-4" />
+            here<ArrowUpRight className="w-4 h-4" />
           </Link>
-          for more details)
         </h5>
     
     <div className="space-y-6 text-[#1A1A1A]">
@@ -71,37 +69,43 @@ export default function Home() {
       </h1>
 
       <nav className="flex justify-center space-x-10 mb-8">
-        <button 
+        <Button 
           onClick={() => setActiveSection('quiz')}
-          className={`font-chomiku text-2xl ${
+          variant="ghost"
+          size="lg"
+          className={`font-chomiku text-xl border-2 border-[#2D2D2D] transition-colors ${
             activeSection === 'quiz' 
-              ? 'text-[#1A1A1A]' 
-              : 'text-[#4A4A4A] hover:text-[#1A1A1A]'
-          } transition-colors`}
+              ? 'bg-[#2D2D2D] text-white' 
+              : 'text-[#1A1A1A] hover:bg-[#2D2D2D] hover:text-white'
+          }`}
         >
           Quiz
-        </button>
-        <button 
-        onClick={() => setActiveSection('nicknames')}
-        className={`font-chomiku text-2xl ${
-          activeSection === 'nicknames' 
-            ? 'text-[#1A1A1A]' 
-            : 'text-[#4A4A4A] hover:text-[#1A1A1A]'
-        } transition-colors`}
-          >
+        </Button>
+        <Button 
+          onClick={() => setActiveSection('nicknames')}
+          variant="ghost"
+          size="lg"
+          className={`font-chomiku text-xl border-2 border-[#2D2D2D] transition-colors ${
+            activeSection === 'nicknames' 
+              ? 'bg-[#2D2D2D] text-white' 
+              : 'text-[#1A1A1A] hover:bg-[#2D2D2D] hover:text-white'
+          }`}
+        >
           Nicknames
-        </button>
-        <button 
+        </Button>
+        <Button 
           onClick={() => setActiveSection('for-nerds')}
-          className={`font-chomiku text-2xl ${
+          variant="ghost"
+          size="lg"
+          className={`font-chomiku text-xl border-2 border-[#2D2D2D] transition-colors ${
             activeSection === 'for-nerds' 
-              ? 'text-[#1A1A1A]' 
-              : 'text-[#4A4A4A] hover:text-[#1A1A1A]'
-          } transition-colors`}
+              ? 'bg-[#2D2D2D] text-white' 
+              : 'text-[#1A1A1A] hover:bg-[#2D2D2D] hover:text-white'
+          }`}
         >
           For Nerds
-        </button>
-      </nav>    
+        </Button>
+      </nav>  
 
       {activeSection === 'quiz' && (
         <div className="quiz-card bg-[#F5F5F5] rounded-xl shadow-lg p-8 text-center space-y-6 max-w-2xl mx-auto">
